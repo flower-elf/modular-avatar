@@ -116,6 +116,11 @@ jobs:
         with:
           repos: |
             https://vpm.nadena.dev/vpm-prerelease.json
+            
+      - if: failure()
+        run: |
+          jq . $HOME/.local/share/VRChatCreatorCompanion/settings.json
+          jq '.repo | .packages | ."nadena.dev.ndmf" | .versions | .[] | .version' < $HOME/.local/share/VRChatCreatorCompanion/Repos/dev.nadena.prerelease.json
 
       - if: ${{ steps.setup.outputs.should_test == 'true' }}
         name: "Debug: List project contents"
