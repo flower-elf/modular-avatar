@@ -117,7 +117,7 @@ jobs:
           repos: |
             https://vpm.nadena.dev/vpm-prerelease.json
             
-      - if: failure()
+      - if: always()
         run: |
           jq . $HOME/.local/share/VRChatCreatorCompanion/settings.json
           jq '.repo | .packages | ."nadena.dev.ndmf" | .versions | .[] | .version' < $HOME/.local/share/VRChatCreatorCompanion/Repos/dev.nadena.prerelease.json
