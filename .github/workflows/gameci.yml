@@ -110,7 +110,7 @@ jobs:
             fi
           done
 
-      - uses: anatawa12/sh-actions/resolve-vpm-packages@master
+      - uses: bdunderscore/anatawa12-sh-actions/resolve-vpm-packages@prerel
         name: Resolve VPM packages
         if: ${{ matrix.sdk == 'vrcsdk' && steps.setup.outputs.should_test == 'true' }}
         with:
